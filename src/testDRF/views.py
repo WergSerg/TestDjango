@@ -1,23 +1,25 @@
-from rest_framework.generics import ListAPIView,ListCreateAPIView,RetrieveUpdateDestroyAPIView
-from .models import Depart,Employeers
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import csrf_exempt
+from rest_framework import  viewsets
 
-
-
+from .models import Depart,Employeers
 from .serializers import EmployeerSerializer,DepartSerializer
 
 
-class EmployeerView(ListCreateAPIView):
+class EmployeerModeViewSet(viewsets.ModelViewSet):
     queryset = Employeers.objects.all()
     serializer_class = EmployeerSerializer
+    def get_queryset(self):
+        queryset = Employeers.objects.all()
+        username = self.request.query_params.get('username', None)
+        depid = self.request.query_params.get('depid', None)
+        if username is not None:
+            queryset = queryset.filter(fullName=username)
+        if depid is not None:
+            queryset = queryset.filter(departament=depid)
+        return queryset
 
-    def perform_create(self, serializer):
-        return serializer.save()
-
-class SingleEmployeerView(RetrieveUpdateDestroyAPIView):
-    queryset = Employeers.objects.all()
-    serializer_class = EmployeerSerializer
 
 
 
