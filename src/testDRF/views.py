@@ -21,17 +21,13 @@ class EmployeerModeViewSet(viewsets.ModelViewSet):
         return queryset
 
 
-
-
 class StatListView(ListAPIView):
     queryset = Depart.objects.raw('SELECT a1."id","depName","depDirect" , count(a2."fullName"),sum(a2."salary") '\
             'FROM "testDRF_depart" as a1 '\
             'left join "testDRF_employeers" as a2 '\
             'on a1."id"=a2."id" '\
             'group by a1."id"')
-
     serializer_class = DepartSerializer
-
 
     def list(self, request):
         queryset = self.get_queryset()
