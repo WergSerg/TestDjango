@@ -9,7 +9,6 @@ class DepartSerializer(serializers.Serializer):
     count = serializers.IntegerField()
     sum = serializers.IntegerField()
 
-
     class Meta:
         fields = ('depName', 'depDirect','count','sum')
 
