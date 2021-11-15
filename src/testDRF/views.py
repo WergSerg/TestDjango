@@ -1,4 +1,3 @@
-from rest_framework.generics import get_object_or_404
 from rest_framework.generics import ListAPIView,ListCreateAPIView,RetrieveUpdateDestroyAPIView
 from .models import Depart,Employeers
 from rest_framework.response import Response
