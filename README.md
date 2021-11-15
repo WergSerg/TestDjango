@@ -7,6 +7,7 @@ created for django test and DRF
 ## Install 
 
 1. clone project and cd to project dir
+1. clone DB from ./DB/bacup.buckup(postgresql)
 1. create venv and activate it
     ```zsh
     #linux/mac
