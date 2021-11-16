@@ -36,3 +36,15 @@ created for django test and DRF
     #win cmd
     python manage.py runserver
     ```
+##URL
+1. admin/ -admin panel
+1. api-oauth/ - authorization
+1. DepList/ - list of departments
+1. Employee/ - router link for employee data
+    1. Employee/ - list of all employees 
+    1. Employee?username= - search by full name
+    1. Employee?depid= - search by department
+    1. Employee/<int:id> - output by employee id
+    1. You can combine the search
+ 
+
