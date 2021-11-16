@@ -36,7 +36,7 @@ created for django test and DRF
     #win cmd
     python manage.py runserver
     ```
-##URL
+## URL
 1. admin/ -admin panel
 1. api-oauth/ - authorization
 1. DepList/ - list of departments
