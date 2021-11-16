@@ -14,6 +14,8 @@ class EmployeerModeViewSet(viewsets.ModelViewSet):
         queryset = Employeers.objects.all()
         username = self.request.query_params.get('username', None)
         depid = self.request.query_params.get('depid', None)
+        if username is not None and username is not None:
+            queryset = queryset.filter(fullName=username,departament=depid)
         if username is not None:
             queryset = queryset.filter(fullName=username)
         if depid is not None:
